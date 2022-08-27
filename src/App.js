@@ -5,21 +5,41 @@ import {useEffect, useState} from "react";
 
 function App() {
     const [jobs, setJobs] = useState([]);
-    useEffect(() =>{
+    const [filters, setFilters] = useState([]);
+    useEffect(() => {
         setJobs(data);
-    },[]);
+    }, []);
 
-    console.log(jobs);
-  return (
-    <>
-      <Header />
-        {jobs.length === 0 ?(
-            <p>Fetching jobs data..</p>
-        ) : (
-            jobs.map((job) =>  <JobBoard job={job} key={job.id} /> )
-        )}
-    </>
-  );
+    const filterFunc = ({role, level, tools, languages}) => {
+        if (filters.length === 0) {
+            return true;
+        }
+        const tags = [role, level];
+        if (tools) {
+            tags.push(...tools);
+        }
+        if (languages) {
+            tags.push(...languages);
+        }
+        return tags.some(tag => filters.includes(tag));
+    };
+
+    const handleTagClick = (tag) => {
+        setFilters([...filters, tag]);
+    }
+
+    const filteredJobs = jobs.filter(filterFunc);
+    return (
+        <>
+            <Header/>
+
+            {jobs.length === 0 ? (
+                <p>Fetching jobs data..</p>
+            ) : (
+                filteredJobs.map((job) => <JobBoard job={job} key={job.id} handleTagClick={handleTagClick}/>)
+            )}
+        </>
+    );
 }
 
 export default App;
