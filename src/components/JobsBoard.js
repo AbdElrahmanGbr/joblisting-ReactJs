@@ -44,7 +44,7 @@ const JobBoard = ({
             <div
                 className="flex flex-wrap items-center mt-4 mx-4 pt-4 border-t border-gray-500 border-solid sm:ml-auto sm:border-0 sm:mt-0 sm:pt-0 sm:mb-0">
                 {tags ? tags.map((tag) => <span onClick={() => handleTagClick(tag)}
-                                                className='text-teal-500 bg-teal-100 font-bold mr-4 mb-4 p-2 rounded'>{tag}</span>) : ''}
+                                                className='cursor-pointer text-teal-500 bg-teal-100 font-bold mr-4 mb-4 p-2 rounded'>{tag}</span>) : ''}
             </div>
         </div>
 
