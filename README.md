@@ -70,7 +70,7 @@ the filtration part using tags and storing them in filters array and reseting ea
 
 ## Author
 
-- Website - AbdElrahman Gbr
+- AbdElrahman Gbr
 - Frontend Mentor - [@AbdElrahmanGbr](https://www.frontendmentor.io/profile/AbdElrahmanGbr)
 - Twitter - [@AbdelrahmanGbr4](https://twitter.com/AbdelrahmanGbr4)
 
